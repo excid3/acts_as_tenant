@@ -1,5 +1,4 @@
 require "spec_helper"
-require "active_record_models"
 
 describe ActsAsTenant do
   after { ActsAsTenant.current_tenant = nil }
