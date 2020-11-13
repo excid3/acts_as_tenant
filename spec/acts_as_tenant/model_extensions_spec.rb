@@ -7,7 +7,7 @@ describe ActsAsTenant do
   # Setting and getting
   describe "Setting the current tenant" do
     before { ActsAsTenant.current_tenant = :foo }
-    it { ActsAsTenant.current_tenant == :foo }
+    it { expect(ActsAsTenant.current_tenant).to eq(:foo) }
   end
 
   describe "is_scoped_as_tenant should return the correct value when true" do
