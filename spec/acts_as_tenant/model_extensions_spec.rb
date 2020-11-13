@@ -99,6 +99,22 @@ describe ActsAsTenant do
     end
   end
 
+  describe "Handles tenant model updates" do
+    before do
+      @account = Account.create!(name: "foo")
+      @project = @account.projects.create!(name: "bar")
+    end
+
+    it "should fetch tenant object through belongs_to to avoid accessing stale tenant object if that was updated" do
+      # Sets current tenant in a way that it does not share the same memory reference of `@account`.
+      ActsAsTenant.current_tenant = Account.find_by(name: "foo")
+
+      expect(@project.account.name).to eq("foo")
+      @account.update!(name: "Acme")
+      expect(@project.account.name).to eq("Acme")
+    end
+  end
+
   # Scoping models
   describe "Project.all should be scoped to the current tenant if set" do
     before do
