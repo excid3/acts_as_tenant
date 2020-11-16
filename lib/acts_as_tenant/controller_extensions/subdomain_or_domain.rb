@@ -18,6 +18,10 @@ module ActsAsTenant
           tenant_class.where(tenant_second_column => request.domain.downcase).first
         end
       end
+
+      def current_tenant
+        ActsAsTenant.current_tenant
+      end
     end
   end
 end

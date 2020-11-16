@@ -16,6 +16,10 @@ module ActsAsTenant
           ActsAsTenant.current_tenant = tenant_class.where(tenant_column => request.subdomains.last.downcase).first
         end
       end
+
+      def current_tenant
+        ActsAsTenant.current_tenant
+      end
     end
   end
 end

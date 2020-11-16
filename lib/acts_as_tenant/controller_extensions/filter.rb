@@ -12,6 +12,10 @@ module ActsAsTenant
       def set_current_tenant(current_tenant_object)
         ActsAsTenant.current_tenant = current_tenant_object
       end
+
+      def current_tenant
+        ActsAsTenant.current_tenant
+      end
     end
   end
 end
