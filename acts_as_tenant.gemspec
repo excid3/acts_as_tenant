@@ -23,5 +23,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "sqlite3"
   spec.add_development_dependency "sidekiq", "~> 6.1", ">= 6.1.2"
   spec.add_development_dependency "standard"
-  spec.add_development_dependency "appraisal"
 end
